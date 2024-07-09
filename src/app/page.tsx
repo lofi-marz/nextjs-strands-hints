@@ -9,7 +9,7 @@ export default async function Home() {
     const hints = await getHints([game.spangram, ...game.themeWords]);
     console.log(hints);
     return (
-        <main className="font-body flex min-h-screen w-full max-w-screen-sm flex-col items-center gap-4 p-4">
+        <main className="font-body mx-auto flex min-h-screen w-full max-w-screen-sm flex-col items-center gap-4 p-4">
             <BoardSection game={game} hints={hints} />
         </main>
     );

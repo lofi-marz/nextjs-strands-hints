@@ -37,7 +37,10 @@ export function ThemeWordReveal({
                         key={`char-${i}`}
                         onClick={() =>
                             setRevealed((old) =>
-                                old.map((value, j) => value && i === j)
+                                old.map((value, j) => {
+                                    if (i !== j) return value;
+                                    return !value;
+                                })
                             )
                         }>
                         {char}
