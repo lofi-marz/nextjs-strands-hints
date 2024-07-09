@@ -48,17 +48,19 @@ export function ThemeWordReveal({
                 ))}
             </div>
             {hintShown && <div className="p-4 italic">{hint}</div>}
-            <div className="flex gap-2">
+            <div className="flex w-full justify-between gap-2 text-lg font-bold *:grow">
                 <Button
-                    size="icon"
                     onClick={() => setRevealed((old) => old.map((v) => !v))}>
-                    <Eye className="size-full p-1" />
+                    <Eye className="mr-2 size-4" />
+                    Reveal Word
                 </Button>
-                <Button size="icon" onClick={() => revealLocation(word)}>
-                    <Waypoints className="size-full p-1" />
+                <Button onClick={() => revealLocation(word)}>
+                    <Waypoints className="mr-2 size-4" />
+                    Show Path
                 </Button>
-                <Button size="icon" onClick={() => setHintShown((v) => !v)}>
-                    <Lightbulb className="size-full p-1" />
+                <Button onClick={() => setHintShown((v) => !v)}>
+                    <Lightbulb className="mr-2 size-4" />
+                    Hint
                 </Button>
             </div>
         </Card>
