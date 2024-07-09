@@ -11,14 +11,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@azure/openai": "1.0.0-beta.12",
+    "@radix-ui/react-collapsible": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "lucide-react": "^0.403.0",
     "next": "14.2.4",
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
     "react-query": "^3.39.3",
+    "server-only": "^0.0.1",
     "sharp": "^0.33.4",
-    "tailwind-merge": "^2.3.0"
+    "tailwind-merge": "^2.3.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",

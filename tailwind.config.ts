@@ -1,15 +1,14 @@
-import forms from '@tailwindcss/forms';
-import typography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
-import colors from 'tailwindcss/colors';
 import defaultTheme from 'tailwindcss/defaultTheme';
-const config: Config = {
+const config = {
+    darkMode: ['class'],
     content: [
-        './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-        './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-        './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+        './pages/**/*.{ts,tsx}',
+        './components/**/*.{ts,tsx}',
+        './app/**/*.{ts,tsx}',
+        './src/**/*.{ts,tsx}',
     ],
-    darkMode: 'class',
+    prefix: '',
     theme: {
         container: {
             center: true,
@@ -20,31 +19,22 @@ const config: Config = {
         },
         extend: {
             fontFamily: {
-                sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
                 title: ['var(--font-title)', ...defaultTheme.fontFamily.sans],
+                body: ['var(--font-body)', ...defaultTheme.fontFamily.sans],
             },
-			colors: {
-                grey: colors.stone,
-                light: colors.stone[50],
-                dark: colors.stone[950],
-                easy: colors.green,
-                medium: colors.amber,
-                hard: colors.orange,
-                extrahard: colors.red,
-                theme: 'var(--theme)',
-                'theme-invert': 'var(--theme-invert)',
-                border: 'var(--border)',
+            colors: {
+                border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))',
-                background: 'var(--background)',
-                foreground: 'var(--foreground)',
+                background: 'hsl(var(--background))',
+                foreground: 'hsl(var(--foreground))',
                 primary: {
-                    DEFAULT: colors.emerald[400],
-                    foreground: colors.emerald[50],
+                    DEFAULT: 'hsl(var(--primary))',
+                    foreground: 'hsl(var(--primary-foreground))',
                 },
                 secondary: {
-                    DEFAULT: colors.red[400],
-                    foreground: colors.red[400],
+                    DEFAULT: 'hsl(var(--secondary))',
+                    foreground: 'hsl(var(--secondary-foreground))',
                 },
                 destructive: {
                     DEFAULT: 'hsl(var(--destructive))',
@@ -67,7 +57,12 @@ const config: Config = {
                     foreground: 'hsl(var(--card-foreground))',
                 },
             },
-			keyframes: {
+            borderRadius: {
+                lg: 'var(--radius)',
+                md: 'calc(var(--radius) - 2px)',
+                sm: 'calc(var(--radius) - 4px)',
+            },
+            keyframes: {
                 'accordion-down': {
                     from: { height: '0' },
                     to: { height: 'var(--radix-accordion-content-height)' },
@@ -83,6 +78,7 @@ const config: Config = {
             },
         },
     },
-    plugins: [forms, typography],
-};
+    plugins: [require('tailwindcss-animate')],
+} satisfies Config;
+
 export default config;
